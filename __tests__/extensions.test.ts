@@ -11,7 +11,7 @@ describe('Extension tests', () => {
   });
   it('checking addExtensionOnWindows', async () => {
     let win32: string = await extensions.addExtension(
-      'Xdebug, pcov, sqlite, :intl, phalcon4, ast-beta, grpc-1.2.3, inotify-1.2.3alpha2',
+      'Xdebug, pcov, sqlite, :intl, phalcon4, oci8, ast-beta, grpc-1.2.3, inotify-1.2.3alpha2',
       '7.4',
       'win32'
     );
@@ -20,6 +20,7 @@ describe('Extension tests', () => {
     expect(win32).toContain('Add-Extension sqlite3');
     expect(win32).toContain('Remove-Extension intl');
     expect(win32).toContain('phalcon.ps1 phalcon4');
+    expect(win32).toContain('oci.ps1 7.4');
     expect(win32).toContain('Add-Extension ast beta');
     expect(win32).toContain('Add-Extension grpc stable 1.2.3');
     expect(win32).toContain('Add-Extension inotify alpha 1.2.3');
